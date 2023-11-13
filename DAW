@@ -1,0 +1,112 @@
+1º Dominio DNS
+	-Hostalia
+	-GoDaddy
+
+2º IP
+	-PC de casa
+	-VPS (OVH 3.5€/mes)
+	
+	at9daw2
+	1234
+	
+	159
+	209
+	sudo apt install openssh-server
+	sudo nano /etc/hosts
+	
+	ssh at9daw2@miprimer.server.es
+	
+	cat /etc/hosts
+	
+	cd /etc/apache2
+	
+	a2ensite 002-x.conf
+	
+	https://www.dokuwiki.org/dokuwiki
+	
+	mkdocs
+	
+	----------------------
+	
+	mkdocs
+	phpDocumentos
+	git
+		wiki
+		acceso
+
+
+	apache --> apt install libapachemod.php <--- php
+	
+	a2enmod php
+	a2dismod php
+	
+	
+	a2ensite
+	----------------------
+	
+	DAW
+	
+	-Control de versiones
+		-github
+		-git
+			-commits, add, push
+			-branches
+			-merges
+			-gitflow
+		-ssh
+		-git pages
+		
+	-Documentación
+		-phpDocs (comando)\
+						   >--> generación de web estática
+		-mkdocs (comando) /
+		
+	-Configuraciones de server
+		-Importante
+			-ver archivo de config
+			-editar
+			-reiniciar servidor
+		-Importante 2
+			-entender permisos /var/www/
+			-entender apache /etc/apache2
+			-entender logs
+		-directivas
+			-Documentroot
+			-Servername
+			-Logs
+			-ServerAlias
+			
+	-DNS
+		-Registro
+		-Modificación de A / CName
+		-/etc/hosts
+		
+	----------------------
+	
+	ServerSignature Off en /etc/apache2/conf-enable/security
+	
+	DirectoryIndex en /etc/apache2/sites-enable/001-dwes
+	
+	----------------------
+	
+	CORREO	CLARO	CIFRADO
+	SMTP - 	25 - 	587
+	POP -	110 -	995
+	IMAP - 	143 - 	993
+	
+	openssl s_client -connect smtp.educa.madrid.org:587 -crlf -quiet -starttls smtp
+	
+	echo -ne "usuario" | base64
+	
+MAIL FROM: <algo@loquesea.com>
+
+RCPT TO: <dgarciaayala1@educa.madrid.org>
+
+DATA
+
+From: "Daniel DAW" <dani@daw.es>
+To: "Alicia" <dgarciaayala1@educa.madrid.org>
+
+Hola!!
+
+.
