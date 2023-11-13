@@ -1,0 +1,87 @@
+DOCUMENTACIÓN - README
+
+bin/runserver.sh
+
+db/create_db.sql
+   initial_load.sql
+   test_data.sql
+   home.sql
+   
+config/config./.json
+			   $variable.php
+			   .data
+	  credenciales BD
+	  servidor correo
+	  rutas
+	  
+DISEÑO EN FIGMA
+public/index.php
+      Css
+	  json
+	  img
+	  
+storage(resources)
+
+src/todas las clases
+
+templates/¿?
+
+test/ ---> Integración/Preproducción/Producción
+	  
+	  
+------------------------------------------------------
+
+config/init.php
+public/index.php
+src/bici.php
+
+------------------------------------------------------
+
+get_object_vars($this) -> todos los atributos de una clase	
+
+------------------------------------------------------
+
+Apache - PHP - MySQL - BBDD
+
+Motor - Protocolo
+
+x MySQL;
+✔️ PDO
+
+mysql -u menosdaw -p menosdaw
+
+mysqldump -u menosdaw -p menosdaw
+
+mysql -u menosdaw -p menosdaw -e 'SELECT * FROM Comida'
+
+ComidaManager	Comida	FormComida
+LISTADOS		CRUD
+				Create
+				Read
+				Update
+				Delete
+				
+------------------------------------------------------
+
+ENVIO DE FICHEROS
+
+1 - Tipo de subida
+2 - Uno o varios file
+	-------------------- EN EL SERVER
+	
+3 - Sube el fichero a /tmp (contenido BYTES)
+4 - Verificar los datos
+	-Tipo de fichero
+	-Tamaño
+	-Formato corresponde con tipo -$_FILES
+5 - Proceso (guardar info en BBDD) y moverlo a su localización final
+
+------------------------------------------------------
+
+1- Formulario - Ficheros
+2- BBDD - CRUD / Paginación
+3- HTML con PHP
+4- Ficheros Codificación (serialización json)
+5- Objetos
+6- Procesado de arrays
+
