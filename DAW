@@ -110,3 +110,38 @@ To: "Alicia" <dgarciaayala1@educa.madrid.org>
 Hola!!
 
 .
+
+----------------------
+/db/
+/config/
+/bin
+/docs
+/public/
+		img
+		js			(Document Root)
+		css			
+		index.php
+		
+src/
+	Coche.php
+	user.php
+	GestorUsuario.php
+	
+/resources/
+		   templates.php
+
+/uploads/
+
+Para unir login.php y LoginForm.php con el spAutoload
+
+----------------------
+
+----------UBUNTU------------
+Dominio
+BD
+Password
+User
+Password
+----------WORDPRESS----------
+User
+Password
