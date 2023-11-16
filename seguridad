@@ -1,0 +1,15 @@
+SEGURIDAD USUARIOS
+
+    sudo apt-get update
+    sudo apt-get install apache2-utils
+
+    htpasswd -c daw_users.db manolito - Crea el archivo junto al usuario (esto puede estar donde queramos)
+
+    nano /etc/apache2/sites-enabled/002-DAW.conf - editar el archivo de configuracion para añadir
+
+     <Directory "/var/www/html"> - Cambiar el directorio que quieres que tenga la seguridad
+      AuthType Basic
+      AuthName "Restricted Content"
+      AuthUserFile "/etc/apache2/.htpasswd" - Poner la ruta del fichero donde están los usuarios
+      Require valid-user
+  </Directory>
