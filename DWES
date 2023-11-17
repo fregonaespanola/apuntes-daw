@@ -82,7 +82,36 @@ ENVIO DE FICHEROS
 2- BBDD - CRUD / Paginación
 3- HTML con PHP
 4- Ficheros Codificación (serialización json)
-5- Objetos - Autoload
+5- Objetos
 6- Procesado de arrays
-7- Arrays - Funciones
+
+------------------------------------------------------
+
+HTTP
+ ---->GET/POST
+ <---- HTML CSS JS IMG
+ 
+ ---
+|
+|	Cabeceras
+|	Cookie
+|
+ ---
+ 
+ -password_hash("contraseña", PASSWORD_DEFAULT);
+ 
+ password_verify("contraseña", "contraseña encriptada")
+ 
+ 
+ public
+ auth - u1 1234 // a1 1234
+ logout
+ privada1
+ privada2
+ privada3
+ 
+ 1º if
+ 2º redirect
+ 3º BBDD
+	Select user,pass from Users where user = user limit 1;
 
