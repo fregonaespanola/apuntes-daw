@@ -1,0 +1,251 @@
+    1  vim /etc/netplan/00-installer-config.yaml 
+    2  ping google.com
+    3  vim /etc/netplan/00-installer-config.yaml 
+    4  ping 192.168.14.159
+    5  ping 192.168.14.109
+    6  reboot
+    7  ping 192.168.14.109
+    8  ip a
+    9  ping 192.168.14.109
+   10  ping google.com
+   11  ping 192.168.14.109
+   12  reboot
+   13  ls /etc/apache2/sites-enabled/
+   14  cat /etc/apache2/sites-enabled/000-default.conf 
+   15  ll /var/www/html/
+   16  ls
+   17  cd /var/www/
+   18  mkdir dwes
+   19  mkdir daw
+   20  ls
+   21  ls -a
+   22  ls -la
+   23  cd /etc/apache2/
+   24  ls
+   25  tree
+   26  apt install tree
+   27  tree
+   28  tree -L 1
+   29  ll sites-available/
+   30  ll sites-enabled/
+   31  cd sites-available/
+   32  cp 000-default.conf 001-DWES.conf
+   33  tree
+   34  vin 001-DWES.conf 
+   35  nano 001-DWES.conf 
+   36  echo "Esto es DWES" > /var/www/dwes/index.html
+   37  nano 001-DWES.conf 
+   38  cat 001-DWES.conf 
+   39  cd /etc/apache2/sites-available/
+   40  ll
+   41  cd /etc/apache2/sites-enabled/
+   42  ll
+   43  cd /etc/apache2/sites-available/
+   44  a2ensite 001-DWES.conf 
+   45  ll ../sites-enabled/
+   46  systemctl reload apache2
+   47  cd /etc/apache2/sites-available/
+   48  ls -l
+   49  echo "Esto es DAW" > /var/www/daw/index.html
+   50  cp 001-DWES.conf 002-DAW.es
+   51  nano 002-DAW.es 
+   52  mv 002-DAW.es 002-DAW.conf
+   53  a2ensite 002-DAW.conf 
+   54  systemctl reload apache2
+   55  cat 001-DWES.conf 
+   56  ll sites-available/cd /var/www/html/
+   57  cd /var/www/html/
+   58  ls
+   59  cat index.html 
+   60  cd /var/www/
+   61  ls -la
+   62  chgrp R alumno daw/
+   63  chmod -R u+w daw/
+   64  ls -la
+   65  chgrp -R alumno daw/
+   66  ls -la
+   67  chgrp -R at9daw daw/
+   68  chgrp -R at9daw2 daw/
+   69  ls -la
+   70  chmod -R g+w daw/
+   71  ls -la
+   72  systemctl reload apache2
+   73  adduser wikicosas
+   74  apt install php-json
+   75  apt install php-bz2 php-zip php-mbstring php-gd php-intl php-sqlite3 php-xml
+   76  cd var/www
+   77  cd ..
+   78  cd var/www/
+   79  mkdir wikicosas
+   80  cd ../..
+   81  cd etc/apache2/
+   82  ll sites-available/
+   83  cd sites-available/
+   84  cp 000-default.conf 003-WIKI.conf
+   85  nano 003-WIKI.conf 
+   86  rm 003-WIKI.conf 
+   87  cp 001-DWES.conf 003-WIKI.conf
+   88  nano 003-WIKI.conf 
+   89  cd ..
+   90  cd sites-enabled/
+   91  ll
+   92  cd ..
+   93  cd sites-available/
+   94  a2ensite 003-WIKI.conf 
+   95  systemctl reload apache2
+   96  cd /var/www/wikicosas/
+   97  ll
+   98  apt install php-json php-bz2 php-zip php-mbstring php-gd php-intl php-sqlite3 php-xml
+   99  ll
+  100  cd /etc/apache2/sites-available/
+  101  cat 003-WIKI.conf 
+  102  cat /etc/apache2/sites-available/001-DWES.conf 
+  103  cat /etc/apache2/sites-available/001-DWES.conf | grep Doc
+  104  cd /var/www/dwes/
+  105  ll
+  106  echo "aaa" > a.txt
+  107  echo "bbb" > b.html
+  108  echo "ccc" > c.md
+  109  mv index.html d.html
+  110  ll
+  111  nano /etc/apache2/apache2.conf 
+  112  nano /etc/apache2/conf-enabled/security.conf 
+  113  service apache2 re
+  114  service apache2 reload
+  115  echo "Principal" > main.html
+  116  nano /etc/apache2/sites-enabled/001-DWES.conf 
+  117  service apache2 reload
+  118  cat /etc/apache2/sites-enabled/001-DWES.conf 
+  119  nano /etc/apache2/sites-enabled/001-DWES.conf 
+  120  service apache2 reload
+  121  rm main.html 
+  122  service apache2 reload
+  123  nano /etc/apache2/sites-enabled/001-DWES.conf 
+  124  service apache2 reload
+  125  mkdir ddd
+  126  service apache2 reload
+  127  nano /etc/apache2/sites-enabled/001-DWES.conf 
+  128  service apache2 reload
+  129  ls
+  130  mkdir wordpress
+  131  cat /etc/hosts
+  132  cd /etc/apache2
+  133  nano sites-available/001-DWES.conf 
+  134  cat /etc/hosts
+  135  cd /var/www/dwes/
+  136  cd ..
+  137  cd daw
+  138  ll
+  139  cd /etc/apache2/
+  140  cd sites-available/
+  141  ll
+  142  cat 002-DAW.conf 
+  143  cd /etc/apache2/sites-enabled/
+  144  ll
+  145  nano 003-WIKI.conf 
+  146  sudo a2ensite apache2-dokuwiki
+  147  a2ensite 003-WIKI.conf
+  148  service apache2 reload
+  149  cd /etc/apache2/
+  150  ll
+  151  nano /etc/apache2/apache2.conf
+  152  service apache2 restart
+  153  cd /var/www/wikicosas/
+  154  ll
+  155  apt-get install postfix
+  156  cd /etc/apache2/
+  157  cd sites-available/
+  158  ll
+  159  nano 003-WIKI.conf 
+  160  cd /var/www/
+  161  ll
+  162  cd wikicosas/
+  163  ll
+  164  cd ..
+  165  cd daw/
+  166  ll
+  167  cd ..
+  168  cd wikicosas/
+  169  nano index.html
+  170  a2ensite index.html
+  171  apt install
+  172  apt install libapache2-mod
+  173  apt install apache2 libapache2-mod-php
+  174  sudo a2enmod 
+  175  cd /var/www/
+  176  ll
+  177  cd /etc/apache2/sites-available/
+  178  nano 004-INSTI.conf 
+  179  a2ensite 004-INSTI.conf 
+  180  systemctl reload apache2
+  181  cd /var/www/logos/
+  182  nano index.html 
+  183  cd ..
+  184  chmod -R 755 /var/www
+  185  chmod -R at9daw2 755 /var/www/logos/index.html 
+  186  chown -R at9daw2 755 /var/www/logos/index.html 
+  187  chown -R 755 /var/www/logos/index.html 
+  188  chown -R 755 /var/www/logos
+  189  systemctl restart apache2
+  190  ip a
+  191  nano /etc/hosts
+  192  systemctl restart apache2
+  193  nano /etc/hosts
+  194  sudo certbot --apache 
+  195  certbot --apache 
+  196  apt  install certbot
+  197  certbot --apache 
+  198  adduser vivek
+  199  deluser ---remove-home vivek
+  200  deluser vivek
+  201  cdmod -R 755 ./
+  202  cdmod -R 755 /var/www
+  203  apt install chmod
+  204  cdmod -R 755 /var/www
+  205  apt install deb coreutils
+  206  apt install deb-coreutils
+  207  apt install coreutils
+  208  cdmod -R 755 /var/www
+  209  ls
+  210  cd /etc/apache2/sites-available/
+  211  nano 002-DAW.conf 
+  212  nano 001-DWES.conf 
+  213  nano 004-INSTI.conf
+  214  a2ensite 004-INSTI.conf
+  215  systemctl reload apache2
+  216  cd ..
+  217  cd sites-enabled/
+  218  ll
+  219  systemctl status apache2
+  220  clear
+  221  ufw status
+  222  ufw enable
+  223  ufw status
+  224  ufw allow in SSH
+  225  ufw allow ssh
+  226  ufw allow apache
+  227  ufw allow 8080
+  228  ufw status
+  229  ufw allow 25565
+  230  curl logos.es
+  231  cat /etc/netplan/00-installer-config.yaml
+  232  cat /etc/hosts
+  233  curl logos.es
+  234  nano /etc/hosts
+  235  cat /etc/hosts
+  236  cd /var/www/
+  237  mkdir prueba
+  238  cd prueba/
+  239  nano index.html
+  240  cd /etc/apache2/sites-available/
+  241  cp 001-DWES.conf 005-pruebas.conf
+  242  nano 005-pruebas.conf 
+  243  a2ensite 005-pruebas.conf 
+  244  systemctl reload apache2
+  245  cd /etc
+  246  ll
+  247  cd apache2/
+  248  ll
+  249  cat apache2.conf 
+  250  ll
+  251  history
