@@ -249,3 +249,58 @@
   249  cat apache2.conf 
   250  ll
   251  history
+
+
+sudo a2enmod 
+  175  cd /var/www/phpdocs/
+  176  wget -0 phive.phar https://phar.io/releases/phive.phar
+  177  wget phive.phar https://phar.io/releases/phive.phar
+  178  mv phive.phar /usr/bin/phive
+  179  ll
+  180  composer init
+  181  apt install composer
+  182  composer init
+  183  ll
+  184  composer init
+  185  ll
+  186  nano composer.json 
+  187  composer init
+  188  ll
+  189  cd vendor/
+  190  ll
+  191  cd composer/
+  192  ll
+  193  cd ..
+  194  ll
+  195  cd src/
+  196  ll
+  197  cd ..
+  198  composer install
+  199  cd ..
+  200  cd /etc/apache2/sites-available/
+  201  cp 000-default.conf 007-phpdocs.conf
+  202  nano 007-phpdocs.conf 
+  203  a2ensite 007-phpdocs.conf 
+  204  cd /var/www/phpdocs/
+  205  nano index.php
+  206  mkdir docs
+  207  vendor/bin/phpdoc -d /var/www/phpdocs/index.php -t /var/www/phpdocs/docs/
+  208  mkdir clases
+  209  cd clases/
+  210  nano DatabaseConnection.php
+  211  nano EmailSender.php
+  212  nano FileManager.php
+  213  vendor/bin/phpdoc -d /var/www/phpdocs/clases/ -t /var/www/phpdocs/docs/
+  214  chmod +x vendor/bin/phpdoc
+  215  composer update phpdocumentor/phpdocumentor
+  216  composer install
+  217  vendor/bin/phpdoc -d /var/www/phpdocs/clases -t /var/www/phpdocs/docs
+  218  ls vendor/bin/
+  219  ll
+  220  cd ..
+  221  vendor/bin/phpdoc -d /var/www/phpdocs/clases -t /var/www/phpdocs/docs
+  222  ll
+  223  cd docs/
+  224  ll
+  225  history
+
