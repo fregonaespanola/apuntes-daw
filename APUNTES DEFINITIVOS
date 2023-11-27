@@ -201,4 +201,6 @@ Al entrar ahora pide user y contraseña
 --------------- HACER BACK UP Y RESTAURAR BBDD ------------
 mysqldump -u dani -p prueba > database_name-$(date +%Y%m%d).sql
 
+--------------- HACER BACK UP DE CARPETA --------
 
+tar -czvf hazloaqui.tar.gz /var/www/pruebaphp
