@@ -123,3 +123,53 @@ chmod +x vendor/bin/phpdoc
 composer update phpdocumentor/phpdocumentor
 composer install
 vendor/bin/phpdoc -d /var/www/pruebaphp/clases/ -t /var/www/pruebaphp/docs/
+-----------PHPMAILER----------
+---CLIENTE---
+mkdir mailer
+nano composer.json
+(dentro del archivo)
+{
+    "require": {
+        "phpmailer/phpmailer": "^6.8"
+    }
+}
+añadir el archivo enviador a la carpeta
+
+Si es desde terminal
+openssl s_client -connect smtp.educa.madrid.org:587 -crlf -quiet -starttls smtp
+EHLO
+AUTH LOGIN
+ERROR AL LOGIN
+
+-------------USERS.DB------------
+FALTA POR PONER
+------------HTPASWWD-----------
+sudo apt-get update
+sudo apt-get install apache2-utils
+htpasswd -c /etc/apache2/.htpasswd examen (si no es la primera vez se hace sin -c)
+cat /etc/apache2/.htpasswd
+nano /etc/apache2/sites-enabled/002-x.conf
+(dentro del archivo)
+	<Directory "var/www/mkdocs">
+		AuthType Basic
+		AuthName "RestrictedContent"
+		AuthUserFile /etc/apache2/.htpasswd
+		Require valid-user
+	</Directory>
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+sudo systemctl status apache2
+sudo nano /etc/apache2/apache2.conf
+(dentro del archivo)
+	<Directory /var/www/>
+	  Options Indexes FollowSymLinks
+	  AllowOverride All
+	  Require all granted
+	</Directory>
+sudo nano /var/www/html/.htaccess
+(dentro del archivo)
+	AuthType Basic
+	AuthName "Restricted Content"
+	AuthUserFile /etc/apache2/.htpasswd
+	Require valid-use
+Al entrar ahora pide user y contraseña
