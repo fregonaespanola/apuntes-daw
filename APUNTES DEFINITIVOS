@@ -139,8 +139,32 @@ Si es desde terminal
 openssl s_client -connect smtp.educa.madrid.org:587 -crlf -quiet -starttls smtp
 EHLO
 AUTH LOGIN
-ERROR AL LOGIN
+(esto se haría en otra pestaña de la terminal)
+echo -ne "usuario" | base64
+(en el usuario metemos la cadena que nos da)
+(esto se haría en otra pestaña de la terminal)
+echo -ne "contraseña" | base64
+(en la contraseña metemos la cadena que nos da y nos dirá 235 nice to meet you, si da error volver a hacer el proceso)
+MAIL FROM: <algo@loquesea.es>
+--- ESPERA RESPUESTA DEL SERVER ---
 
+RCPT TO: <jorge.duenas@educa.madrid.org>
+--- ESPERA RESPUESTA DEL SERVER ---
+
+DATA 
+--- ESPERA RESPUESTA DEL SERVER ---
+
+From: "Jorge DAW" <jorge@daw.es>
+To: "Alicia" <alicia@maravillas.com>
+Subject: Hello Test Mail
+
+Hola!!
+
+Una cosa es el comando y otra el contenido.
+
+La imaginación es el único arma en la guerra contra la realidad.
+
+.
 -------------USERS.DB------------
 FALTA POR PONER
 ------------HTPASWWD-----------
