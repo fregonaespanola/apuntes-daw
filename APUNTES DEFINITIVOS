@@ -197,3 +197,8 @@ sudo nano /var/www/html/.htaccess
 	AuthUserFile /etc/apache2/.htpasswd
 	Require valid-use
 Al entrar ahora pide user y contraseña
+
+--------------- HACER BACK UP Y RESTAURAR BBDD ------------
+mysqldump -u dani -p prueba > database_name-$(date +%Y%m%d).sql
+
+
