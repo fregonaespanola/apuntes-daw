@@ -1,0 +1,125 @@
+---------------------CONFIGURAR IP ESTÁTICA U SSH-----------
+---SERVIDOR---
+ip link set enp0s3 down
+ip link set enp0s3 up
+cd /etc/netplan
+nano 00-installer TAB
+(dentro del archivo)
+network:
+  ethernets:
+    enp0s3:
+      dhcp4: no
+      addresses: [192.168.14.209/24]
+      gateway4: 192.168.14.100
+      nameservers:
+        addresses: [8.8.8.8,8.8.4.4]
+  version: 2
+netplan generate
+netplan apply
+apt install open-ssh server
+---USUARIO---
+ssh usuario@ip
+nano /etc/hosts
+ (para más dudas este es el tutorial) https://www.youtube.com/watch?v=3-Xn6YlxX3A	
+
+-------------INSTALAR APACHE----------------
+apt install apache2
+sudo mkdir /var/www/primeraweb
+sudo nano /var/www/primeraweb/index.html
+cd /etc/apache2/sites-available
+cp 000-.conf 001-x.conf
+nano 001-x.conf
+(dentro del archivo)
+ServerName dwes.es
+	ServerAdmin webmaster@localhost
+	DocumentRoot /var/www/dwes
+
+	DirectoryIndex main.html
+
+	<Directory "var/www/dwes/ddd">
+		 AuthType Basic
+		 AuthName "Restricted Content"
+		 AuthUserFile "/etc/apache2/.htpasswd"
+	         Require valid-user
+	</Directory>
+
+a2ensite 001-x.conf
+service apache2 restart
+
+----------------MKDOCS---------------
+sudo apt install -y python3-pip
+pip3 install mkdocs
+pip3 install mkdocs-material
+sudo apt install mkdocs
+cd /var/www
+mkdocs new my-docs
+(dentro del mkdocs.yml)
+site_name: My Docs
+theme:
+ name: material
+mkdocs build (si se hacen cambios en el mkdocs.yml hay que volver a lanzar el build)
+[CREAR EL APACHE CON LO DE ARRIBA Y PONER DocumentRoot /var/www/my-docs/site ]
+
+------------DOKUWIKI------------
+mkdir /var/www/dokuwiki
+wget https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
+tar -xvzf dokuwiki-stable.tgz
+mv dokuwiki-*/ var/www/ proyecto/dokuwiki
+chown -R www-data:www-data /var/www/proyecto/dokuwiki
+chmod -R 755 /var/www/proyecto/dokuwiki
+[CREAR EL APACHE]
+Meterse a dokuwiki.es/dokuwiki/install.php
+Una vez creado, volver install.php
+Entrar a dokuwiki.es/dokuwiki/ y documentar las cosas ahí
+
+----------WORDPRESS--------------
+apt install mysql-server
+apt install php libapache2-mod-php php-mysql
+mysql
+CREATE DATABASE nombre_de_tu_base_de_datos;
+CREATE USER 'nombre_de_usuario'@'localhost' IDENTIFIED BY 'contraseña';
+GRANT ALL PRIVILEGES ON nombre_de_tu_base_de_datos.* TO 'nombre_de_usuario'@'localhost';
+FLUSH PRIVILEGES;
+wget https://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gz
+rsync -av wordpress/* /var/www/proyecto/
+chown -R www-data:www-data /var/www/proyecto/
+chmod -R 755 /var/www/proyecto/
+cd /var/www/proyecto/
+mv wp-config-sample.php wp-config.php
+nano wp-config.php --- meter las credenciales de la base de datos
+[CREAR EL APACHE]
+Entrar a wordpress.es/wordpress y configurar todo
+
+------------PHPDOCS-----------
+mkdir /var/www/phpdocs
+cd /var/www/phpdocs
+nano composer.json
+(dentro del archivo composer.json)
+{
+    "name": "root/phpdocs",
+    "require": {
+        "phpdocumentor/phpdocumentor": "2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Root\\Phpdocs\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "daniel garcia",
+            "email": "dgayala002@gmail.com"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        }
+    }
+}
+composer install
+chmod +x vendor/bin/phpdoc
+composer update phpdocumentor/phpdocumentor
+composer install
+vendor/bin/phpdoc -d /var/www/pruebaphp/clases/ -t /var/www/pruebaphp/docs/
