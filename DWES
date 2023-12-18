@@ -84,6 +84,7 @@ ENVIO DE FICHEROS
 4- Ficheros Codificación (serialización json)
 5- Objetos
 6- Procesado de arrays
+7- Agarrar cosas de otras webs
 
 ------------------------------------------------------
 
@@ -114,4 +115,69 @@ HTTP
  2º redirect
  3º BBDD
 	Select user,pass from Users where user = user limit 1;
+	
+	
+SERVER --- CON POST
 
+api/evento.php -- NO TIENE HTML JS NO IMG
+	init
+	BD
+	select
+	array[objetos con info]
+	echo json_encode($info)
+	
+CLIENTE
+JS
+	AJAX
+	sp
+	
+---------------------------------------------
+
+Autentificación
+
+User / Password --- he olvidado la contraseña --- Recuérdame --- Ingresar por Google/Github/Facebook/Twitter (OAuth)
+
+User | Password | etc
+----------------------
+Dada | 1234 NO  |
+	 | $3Gby6&L | <-- password_hash()
+----------------------
+
+BBDD
+Token
+id_user | tipo   | valor | expiración | email
+--------------------------------------------
+usuario |recovery| token |   +10 min  |
+		|	     |       |            |
+		|	     |       |            |	
+--------------------------------------------
+		
+Proteger área privada
+
+if($_SESSION--)	-->	1º Select de usuario de LIMIT 1
+header(Login.php)	2º Verify - password_verify()
+die()				3º ¿OK? $_SESSION
+					4º Redirección
+					
+Logout
+unset($_SESSION)
+
+----------------------
+
+he olvidado la contraseña
+form con correo o user y boton - Token; $token = bin2hex(openssl_random_pseudo_bytes(16)); o php7: $token = bin2hex(random_bytes(16));
+-generar token
+-enviar email
+	|
+	|-> <a href="cambiopass.php"?~token="---"&id_user="---">
+	
+CambiaPassword.php?token="---"?id_user="---"
+
+1º Recoger get token
+2º Verificar
+3º pedir info
+4º Enviar
+5º Update passw
+6º Delete token
+
+Redirección del área privada
